@@ -48,7 +48,8 @@ git commit -m "init"
 git checkout -b dev
 
 REM Инициализация Alembic
-alembic init alembic
+uv run alembic init alembic
+
 
 REM Замена строки подключения в alembic.ini
 powershell -Command "(Get-Content alembic.ini) -replace 'sqlalchemy.url = .*', 'sqlalchemy.url = sqlite:///./db.sqlite3' | Set-Content alembic.ini"
